@@ -69,7 +69,7 @@ namespace FolderSync
             foreach (var file in sourceFiles)
             {
                 string replicaFilePath = Path.Combine(replica, file.Name);
-                if (File.Exists(replicaFilePath))
+                if (!File.Exists(replicaFilePath))
                 {
                     var replicaFile = new FileInfo(replicaFilePath);
                     if (file.LastWriteTime <= replicaFile.LastWriteTime &&
